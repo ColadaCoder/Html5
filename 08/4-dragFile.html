@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+        body{background: grey;}
+        div{
+            width: 600px;
+            height: 200px;
+            border: 5px dashed #ddd;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        box.ondragover = function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        box.ondrop = function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(e.dataTransfer);
+            var file = e.dataTransfer.files[0];
+
+            this.innerHTML = file.name + '<br>' +
+                            (file.size/1024/1024).toFixed(2) + 'MB' + '<br>' +
+                            ((file.lastModified)/1000/60/60/24/30/12) + '<br>' +
+                            (file.lastModifiedDate.toLocaleDateString()) + '<br>' +
+                            (file.lastModifiedDate.toLocaleTimeString()) ;
+            var rander = new FileReader();
+            rander.readAsDataURL(file);
+            rander.onload = function(){
+                if( /image/.test(this.result) ){
+                     console.log(this.result);
+                    var img = new Image();
+                    img.src = this.result;
+                    img.onload = function(){
+                        box.appendChild(this);
+                    }
+                }
+
+            }
+        }
+        //2018-1970 = 48年
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
