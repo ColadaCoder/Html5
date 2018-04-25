@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    body{
+        background: #3C3F41;
+    }
+    li{list-style: none}
+    .box{
+        width: 400px;
+        height: 300px;
+        margin: 200px auto;
+        box-shadow: 0 0 36px #FBD;
+        padding: 150px;
+        perspective: 800px;
+    }
+    .box ul{
+        width: 400px;
+        height: 300px;
+        position: relative;
+        transform-origin: center center -100px;
+        transform-style: preserve-3d;
+        transition: 5s;
+    }
+    .box ul li{
+        position: absolute;
+        width: 400px;
+        height: 300px;
+        opacity: 0.5;
+        transition: 5s;
+
+    }
+    .box ul li:nth-child(1){
+        top: -300px;
+        background: red;
+        transform-origin: bottom;
+        transform: rotateX(90deg);
+    }
+    .box ul li:nth-child(2){
+        top: 300px;
+        background: green;
+        transform-origin: top;
+        transform: rotateX(-90deg);
+    }
+    .box ul li:nth-child(3){
+        left: -300px;
+        width: 300px;
+        background: yellow;
+        transform-origin: right;
+        transform: rotateY(-90deg);
+    }
+    .box ul li:nth-child(4){
+        left: 400px;
+        width: 300px;
+        background: white;
+        transform-origin: left;
+        transform: rotateY(90deg);
+    }
+    .box ul li:nth-child(5){
+        background: purple;
+    }
+    .box ul li:nth-child(6){
+        background: orange;
+        transform: translateZ(-300px);
+    }
+    .box:hover ul{
+        transform: rotateY(180deg);
+    }
+    .box:hover ul li:nth-child(1){
+        transform: rotateX(25deg);
+    }
+    .box:hover ul li:nth-child(2){
+        transform: rotateX(25deg);
+    }
+    .box:hover ul li:nth-child(3){
+        transform: rotateY(25deg);
+    }
+    .box:hover ul li:nth-child(4){
+        transform: rotateY(25deg);
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>上</li>
+            <li>下</li>
+            <li>左</li>
+            <li>右</li>
+            <li>前</li>
+            <li>后</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            background: #000;
+        }
+        .box{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+        }
+        div{
+            display: flex;
+            margin: auto;
+            border-radius: 50%;
+            border:1px solid #fff;
+        }
+        .box>div{
+            width:200px;
+            height: 200px;
+
+        }
+        .box>div>div{
+            width:100px;
+            height: 100px;
+        }
+        .box>div>div>div{
+            width:5px;
+            height: 5px;
+            background: #fff;
+        }
+
+        p{
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 300px;
+            height: 150px;
+            border-radius:50% 50% 0 0 /100% 100% 0 0;
+            background:linear-gradient(
+                        142deg,
+                        rgba(255,255,255,0.8) 0%,
+                        rgba(0,0,0,0.02) 70%,
+                        transparent 100%
+            );
+            transform-origin: center bottom;
+        }
+
+        .on{
+            animation: play 1s linear infinite;
+        }
+
+         @keyframes play {
+            0% { transform: rotate(0deg) }
+            100% { transform: rotate(360deg) }
+            from{
+                transform: rotate(0deg)
+            }
+            to{
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>
+            <div>
+                <div>
+                    <p class="on"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            background: #2E426C;
+            perspective: 800px;
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width:650px;
+            height: 480px;
+            box-shadow: 0 0 15px white;
+            transform-style: preserve-3d;
+            transform: rotateX(60deg) rotateZ(60deg);
+        }
+        .box div{
+            width:200px;
+            height: 150px;
+            background: #75A2A2;
+            transition: .5s;
+        }
+        .box div:hover{
+            background: yellow;
+            transform:translateZ(20px);
+            box-shadow:10px 20px 40px black;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

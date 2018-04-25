@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            background: #15131E;
+        }
+
+        #wrap{
+            position: relative;
+            width:500px;
+            height: 500px;
+            border: 2px solid #fff;
+            margin: 30px auto;
+        }
+        #wrap .box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: purple;
+        }
+        #wrap .on{
+            animation: play 2s cubic-bezier(.37,-0.59,.7,1.55) 4 alternate forwards;
+        }
+        @keyframes play{
+            0%{left: 0;top:0;}
+            20%{left: 400px;top:0;}
+            50%{left: 400px;top:400px;}
+            80%{left: 0px;top:400px;}
+            100%{left: 0px;top:0;}
+
+        }
+        #wrap:hover .on{
+            animation-play-state: paused;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box on"></div>
+    </div>
+
+</body>
+</html>

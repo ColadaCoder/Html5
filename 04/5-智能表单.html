@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            background: #15131E;
+        }
+        div{
+            width: 600px;
+            height: 800px;
+            box-shadow: 0 0 15px white;
+            margin: 150px auto;
+        }
+        input{
+            width: 160px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <form action="http://baidu.com">
+            <!-- <input type="text" placeholder="请输入用户名" required>
+            <input type="email" autofocus="true">
+            <input type="tel" pattern="\d{1,2}">
+            <input type="number">
+            <input type="text">
+            <input type="url">
+            <input type="search">
+            <input type="range" min="0" max="100" value="0" step="50"> -->
+
+            <input type="color" id="c">
+            <input type="datetime">
+            <input type="datetime-local">
+
+            <!-- <input type="time">
+            <input type="date">
+            <input type="week">
+            <input type="month"> -->
+
+            <input type="text" autocomplete="off">
+            <input type="http://jd.com">
+        </form>
+    </div>
+    <script>
+        c.onchange = function(){
+            console.log(this.value);
+            document.body['style']['background']=this.value;
+        }
+
+    </script>
+</body>
+</html>

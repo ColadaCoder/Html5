@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body,html{
+            height: 100%;
+            overflow: hidden;
+            zoom:1;
+        }
+        body{
+            /*background:url("images/bg3.jpg") center center no-repeat;*/
+            background-size: 100% 100%;
+            perspective: 300px;
+        }
+        li{list-style: none}
+        .box{
+            width: 250px;
+            height: 270px;
+            margin: 250px auto 0 ;
+            animation: play2 20s infinite linear;
+            transform-style: preserve-3d;
+
+        }
+        .box ul{
+            position: relative;
+            width: 250px;
+            height: 270px;
+            transform-style: preserve-3d;
+
+        }
+        .box ul li{
+            position: absolute;
+            width: 250px;
+            height: 270px;
+            background:url("images/bg33.jpg");
+            background-size: cover;
+            animation: play 2s steps(11) infinite;
+
+        }
+        @keyframes play{
+            from{
+                background-position-x:0% ;
+            }
+            to{
+                background-position-x:100% ;
+            }
+        }
+        @keyframes play2{
+            from{
+                transform: rotateY(0deg);
+            }
+            to{
+                transform: rotateY(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+            var aLi = document.querySelectorAll("li");
+            aLi.forEach(function(item,i){
+                item.style.transform = 'rotateY('+(i*360/aLi.length)+'deg) translateZ(500px)' ;
+            })
+
+
+
+    </script>
+</body>
+</html>
