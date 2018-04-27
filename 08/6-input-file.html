@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+    </style>
+</head>
+<body>
+    <input type="file" id="oInput">
+    <script>
+        //选择文件，然后看文件里面内容
+        oInput.onchange = function(){
+            console.log(this.value);//没有意义
+             console.log(this.files);
+             console.log(this.files[0].name)//可以获取里面内容
+        }
+
+    </script>
+</body>
+</html>

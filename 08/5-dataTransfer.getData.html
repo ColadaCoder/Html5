@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        #box{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <img src="1.jpg" width="100" alt="">
+    H5对此也支持，并扩展了各种 MIME 类型，这两种类型会被映射为 'text/plain'和'text/uri-list'
+    <div id="box"></div>
+    <script>
+        box.ondragover = function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        box.ondrop = function(e){
+            var url = e.dataTransfer.getData('url');
+            var text = e.dataTransfer.getData('text');
+            box.innerHTML += '<img width="100" src="'+url+'"/>';
+            // box.innerHTML += text;
+            console.log(text);
+            console.log(e.dataTransfer.getData('url') );
+
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    </script>
+</body>
+</html>

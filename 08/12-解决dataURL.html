@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			li{list-style:none;}
+		</style>
+	</head>
+	<body>
+		<canvas id="c" width="500" height="400"></canvas>
+		<script type="text/javascript">
+			var oC = document.querySelector('#c');
+			var oImg = document.querySelector('img');
+			var cxt = oC.getContext('2d');
+			cxt.fillStyle = 'red';
+			cxt.fillRect(0,0,500,400);
+			cxt.fillStyle = 'blue';
+			cxt.fillRect(100,50,150,100);
+			cxt.fillStyle = 'purple';
+			cxt.fillRect(200,150,200,150);
+
+			var dataurl = oC.toDataURL('image/png');
+			function dataURLtoBlob(dataurl) {
+				var arr = dataurl.split(','),
+					mime = arr[0].match(/:(.*?);/)[1], 
+					bstr = atob(arr[1]),  //对用base-64编码过的字符串进行解码
+					n = bstr.length,
+					u8arr = new Uint8Array(n);
+				while(n--){
+					//charCodeAt() 方法可返回[指定位置的字符的 Unicode 编码]。这个返回值是 0 - 65535 之间的整数。
+					u8arr[n] = bstr.charCodeAt(n);
+				}
+				return new Blob([u8arr], {type:mime});
+			}
+			
+			/*
+			var blob = dataURLtoBlob(dataurl);
+			var img = new Image();
+				img.src = window.URL.createObjectURL(blob);
+				img.onload = function(){
+					document.body.appendChild(this);
+				}
+			*/
+			
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onload = function(){
+				console.log(this.result);
+				var img = new Image();
+				img.src = this.result;
+				img.onload = function(){
+					document.body.appendChild(this);
+				}
+				
+			}
+		</script>
+	</body>
+</html>

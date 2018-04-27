@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+    </style>
+</head>
+<body>
+
+    <script>
+        //1、创建canvas
+        var c = document.createElement('canvas');
+        c.style.border = '1px solid red';
+        var ctx = c.getContext('2d');
+        ctx.fillStyle = 'purple';
+        ctx.fillRect(0,0,300,150);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(50,50,100,50);
+        document.body.appendChild(c);
+        //2、canvas转换成blob
+        // c.toBlob(function(blob){
+        //     console.log(blob);
+        //     var reader = new FileReader();
+        //     reader.readAsDataURL(blob,'utf-8');
+        //     reader.onload = function(){
+        //         console.log(this.result);
+        //         var img = new Image();
+        //         img.src = this.result;
+        //         img.onload = function(){
+        //             document.body.appendChild(this);
+
+        //         }
+        //     }
+        // })
+        // 3、blob变成img
+        c.toBlob(function(blob){
+            console.log(blob);
+            var img = new Image();
+            img.src = window.URL.createObjectURL(blob);
+            img.onload = function(){
+                document.body.appendChild(this);
+            }
+
+        })
+    </script>
+</body>
+</html>

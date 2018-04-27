@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        #box{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        分析外部文件与图片，把他们拖到里面
+    </div>
+    <script>
+        box.ondragover = function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        box.ondrop = function(e){
+
+            var oFiles = e.dataTransfer.files[0];
+            var rander = new FileReader();
+            // 分析文件信息
+            rander.readAsDataURL(oFiles);
+            rander.onload = function(){
+                if( /image/.test(this.result) ){
+                    console.log(this.result);
+                    box.innerHTML = '<img width="100" src="'+this.result+'">'
+                }else{
+                    console.log(this.result);
+                }
+            }
+
+
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    </script>
+</body>
+</html>

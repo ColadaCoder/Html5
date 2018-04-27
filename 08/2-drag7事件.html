@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        div{
+            width: 200px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="left">目标元素</div>
+    <div id="right" draggable="true">拖拽元素</div>
+    <script>
+        var n = 0;
+        right.ondragstart = function () {
+            this.style.background = 'green';
+        }
+        right.ondrag = function () {
+            // 连续
+//            document.title = n++;
+        }
+        right.ondragend = function () {
+            this.style.background = '';
+        }
+
+        // 上面是拖拽元素的三事件
+        left.ondragenter = function () {
+            this.style.background = 'red';
+            this.innerHTML = '请释放鼠标';
+        }
+        left.ondragover = function (e) {
+            document.title = n++;
+            e.preventDefault();
+        }
+        left.ondragleave = function () {
+            this.innerHTML = '请把图片拖拽到此区域';
+        }
+        // 要想ondrop 事件生效 需要 阻止 默认事件
+        left.ondrop = function () {
+            console.log( 1 );
+            document.body.removeChild(right);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

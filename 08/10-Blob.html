@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //1、把字符串变Blob
+        // var arr = ["hello" , "world"];
+        // // var Blob = new Blob(arr);
+        // var Blob = new Blob(["hello","world"],{'type':'text/plain'});
+        // console.log(Blob);
+
+        //2、切割
+        // var arr = ["hello" , "world"];
+        // var Blob = new Blob(arr,{ 'type' : 'text/plain' });
+        // console.log(Blob);
+        // var newBlob = Blob.slice(0 ,5);//0~5
+        // console.log(newBlob);
+
+
+        //3、字符转换为Asc
+        // var str = "hexiaotong";
+        // var arr = [];
+        // for(var i=0;i<str.length;i++){
+        //     arr[i] = str.charCodeAt(i);//ASCII码
+        // }
+        // console.log(arr);
+
+
+        //4、Typed array 转化为Blob对象,Blob代表2进制数组
+        // var str = "hexiaotong";
+        // var arr = [];
+        // for(var i=0;i<str.length;i++){
+        //     arr[i] = str.charCodeAt(i);//ASCII码
+        // }
+        // var array = new Uint8Array(arr);
+        // console.log(array);//Typed array类型化数组
+        // var blob = new Blob([array],{'type':'text/plain'});
+        // console.log(blob);//Blob对象
+        // var reader = new FileReader();//文件读取blob对象
+        // console.log(reader);
+        // reader.readAsText(blob,'utf-8');
+        // reader.onload = function(e){
+        //     console.log(e.target.result);//避免作用域问题
+
+        //     var data = e.target.result;
+        //     var blob = new Blob([data]);
+        //     var a = document.createElement('a');
+        //     a.href = window.URL.createObjectURL(blob);
+        //     a.download = 'a.doc';
+        //     a.click();//下载a文档，里面有我的名字
+        // }
+
+
+        //5、把ArrayBuffer转换为blob
+        // var arrB = new ArrayBuffer(12);
+        // var blog = new Blob([arrB],{'type':'text/plain'})
+        // console.log(blog);
+
+        // var arrB = new ArrayBuffer(12);
+        // var arr16 = new Int16Array(arrB);
+        // var arr32 = new Int32Array(arrB);
+        // var blob = new Blob(arr32,{'type':'text/plain'});
+        // console.log(arrB);
+        // console.log(arr16);
+        // console.log(arr32);
+        // console.log(blob);
+
+        //6、把blob转换为ArrayBuffer，文件对象,file可以转换文blob
+        //也可以用filereader解析file.blob,array.blob
+        // var blob = new Blob(['彤彤'],{type:'text/plain'});
+        // var reader = new FileReader();
+        // reader.readAsArrayBuffer(blob);
+        // reader.onload = function(e){
+        //     console.log(e.target.result);
+        //     var r = e.target.result;
+        //     var buffer = new Uint8Array(r);//八位无符号数组
+        //     console.log(buffer);
+        //     reader.readAsArrayBuffer(new Blob(buffer),'utf-8');
+        //     reader.onload = function(){
+        //         console.log(this.result);
+        //     }
+
+        // }
+
+        //7、DataView
+        // var blob = new Blob(['彤彤'],{type:'text/plain'});
+        // var reader = new FileReader();
+        // reader.readAsArrayBuffer(blob);
+        // reader.onload = function(e){
+        //     console.log(e.target.result);
+        //     var r = e.target.result;
+        //     var dataV = new DataView(r);
+        //     console.log(dataV);
+        //     reader.readAsText(new Blob([dataV]),'utf-8');
+        //     reader.onload = function(){
+        //         console.log( this.result );
+        //     }
+        // }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

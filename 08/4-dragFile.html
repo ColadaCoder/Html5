@@ -2,14 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>tongtong</title>
+    <title>TZ-追梦</title>
     <style>
         * {
             margin: 0;
-            padding: 0;
-
+            padding: 0
         }
-        body{background: grey;}
+        body{
+            background: gray;
+        }
         div{
             width: 600px;
             height: 200px;
@@ -21,37 +22,68 @@
 <body>
     <div id="box"></div>
     <script>
-        box.ondragover = function(e){
+        box.ondragover = function (e) {
             e.preventDefault();
             e.stopPropagation();
         }
-        box.ondrop = function(e){
+        // 当前 不能打开图片？ 要阻止默认
+        box.ondrop = function (e) {
+            console.log( 1 );
             e.preventDefault();
             e.stopPropagation();
-            console.log(e.dataTransfer);
-            var file = e.dataTransfer.files[0];
+            console.log( e.dataTransfer );
+            var file = e.dataTransfer.files[0]; // 文件列表里面的第0个文件对象，就是文件详细信息
+            // 1M = 1024KB = 1024B字节
+            this.innerHTML = file.name +
+                '<br>' + (file.size/1024/1024).toFixed(2) + 'MB' + '<br>' +
+                file.type + '<br>' +
+                ((file.lastModified)/1000/60/60/24/365) + '<br>' +
+                (file.lastModifiedDate.toLocaleDateString()) + '<br>' +
+                (file.lastModifiedDate.toLocaleTimeString());
 
-            this.innerHTML = file.name + '<br>' +
-                            (file.size/1024/1024).toFixed(2) + 'MB' + '<br>' +
-                            ((file.lastModified)/1000/60/60/24/30/12) + '<br>' +
-                            (file.lastModifiedDate.toLocaleDateString()) + '<br>' +
-                            (file.lastModifiedDate.toLocaleTimeString()) ;
-            var rander = new FileReader();
-            rander.readAsDataURL(file);
-            rander.onload = function(){
-                if( /image/.test(this.result) ){
-                     console.log(this.result);
-                    var img = new Image();
-                    img.src = this.result;
-                    img.onload = function(){
-                        box.appendChild(this);
-                    }
+            // 一般会 用到 图片名称 大小
+            // type类型判断
+
+            // Blob对象是文件对象的父级，有提供 属性 size slice
+            // URL 目的 指向 文件信息在内存当中 的 URL路径
+            if( /image/.test(file.type) ){
+                var b = new Blob([file],{type:'image/jpeg'});
+                var url = window.URL.createObjectURL(b);
+                var img = new Image();
+                img.src = url;  // 得到文件二进制字符串数据
+                img.width = 200;
+                img.height = 150;
+                img.onload  = function () {
+                    box.appendChild(img);
                 }
-
             }
-        }
-        //2018-1970 = 48年
 
+            // 上传服务端 -> 数据库（数据都是字符串） 存一个图片URL
+            // 图片服务器里面
+
+
+ /*           var rander = new FileReader();// 创建文件分析对象
+            console.log( rander );
+            rander.readAsDataURL(file); // 分析文件信息 base64  64个字符组成 的
+            rander.onload = function () {
+
+                box.innerHTML += '<img src="'+url+'" width="150" height="100" />';
+
+                //console.log( this.result )
+
+                /!*if( /image/.test(data) ){
+                    var img = new Image();
+
+                    img.src = data;  // 得到文件二进制字符串数据
+                    img.width = 200;
+                    img.height = 150;
+                    img.onload  = function () {
+                        box.appendChild(img);
+                    }
+                }*!/
+
+            }*/
+        }
     </script>
 </body>
 </html>

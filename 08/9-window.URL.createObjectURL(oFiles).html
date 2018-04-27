@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        #box{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">拖动外面的图片在box内显示</div>
+    <script>
+        box.ondragover = function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        box.ondrop = function(e){
+            var oFiles = e.dataTransfer.files[0];
+            var url = window.URL.createObjectURL(oFiles) || window.webkitURL.createObjectURL(oFiles) || null;
+            box.innerHTML = '<img width = "100" src="'+url+'">'
+
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    </script>
+</body>
+</html>
