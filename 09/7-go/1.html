@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+这是第一个页面
+<a href="2.html">跳转到第二个页面</a>
+<input type="button" value="下一页面" id="forward">
+
+<script>
+    forward.onclick = function () {
+//        window.history.forward();
+        window.history.go(1);
+    }
+</script>
+
+</body>
+</html>

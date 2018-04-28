@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            display: flex;
+            -justify-content: space-between;
+        }
+        iframe{
+            display: block;
+            width: 80%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+
+<input type="button" value="上一个页面" id="back">
+这是第二个页面
+<a href="3.html">跳转到第三个页面</a>
+
+<input type="button" value="刷新" id="reload">
+
+<input type="button" value="下一个页面" id="forward">
+<iframe  src="https://www.hao123.com/" frameborder="0"></iframe>
+<script>
+    back.onclick = function () {
+//        window.history.back();
+        window.history.go(-1);
+    }
+    forward.onclick = function () {
+//        window.history.forward();
+        window.history.go(1);
+    }
+    reload.onclick = function () {
+//        window.location.reload()// 要事件
+        window.history.go(0);
+    }
+
+</script>
+</body>
+</html>

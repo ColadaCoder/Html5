@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        body{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="返回上一个页面" id="back">
+这是第三个页面
+<script>
+    back.onclick = function(){
+//        window.history.back();
+        window.history.back(-1);
+    }
+</script>
+</body>
+</html>

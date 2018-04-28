@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<body>
+<script>
+    var arrstr = '["tongtong",18]';
+    var newArr = JSON.parse(arrstr);
+    console.log(newArr);
+    var json1 = `{
+        "name":"tongtong",
+        "age":19
+    }`;
+    var newJson = JSON.parse(json1);
+    console.log(newJson);
+
+
+    var json2 = {
+        'name':'tongtong',
+        'age':20
+    };
+    console.log( JSON.stringify(json2) );//默认带上双引号
+    var arr1 = '["tongtong",21]';
+    console.log( typeof JSON.stringify(arr1) );
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

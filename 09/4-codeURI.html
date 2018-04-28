@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-追梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<body>
+http://localhost:63342/09-%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E5%92%8C%E5%8E%86%E5%8F%B2%E7%AE%A1%E7%90%86/4-codeURI.html?_ijt=rf25qdh0vq8gkv0voi2j75hi9l
+<script>
+    // 为了解决在网络传输数据过程中出现的编码问题 ，需要对数据进行 解码和 编码
+    var str = 'http://localhost:63342/09-%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%E5%92%8C%E5%8E%86%E5%8F%B2%E7%AE%A1%E7%90%86/4-codeURI.html?_ijt=rf25qdh0vq8gkv0voi2j75hi9l';
+    // decodeURI 解码
+    console.log( decodeURI(str) );
+    var str1 = '新增方法和历史管理';
+    var newStr1 = encodeURI(str1);  // encodeURI 编码
+    console.log( newStr1)
+</script>
+</body>
+</html>

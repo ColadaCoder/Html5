@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<body>
+<script>
+    var str = 'hello';
+    var str1 = window.btoa(str);
+    console.log( str1 );
+
+    var str2 = '你好hello';
+    var uri = encodeURI(str2);//不能对中文直接编码
+    console.log(uri);
+
+    var str2 = window.btoa(uri);
+    console.log(str2);
+
+    var str3 = 'JUU0JUJEJUEwJUU1JUE1JUJEaGVsbG8=';
+    var newStr3 = window.atob(str3);
+    var decode = window.decodeURI(newStr3);
+    console.log(newStr3);
+    console.log(decode);
+
+</script>
+</body>
+</html>

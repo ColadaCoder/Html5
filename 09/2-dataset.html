@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tongtong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<body>
+    <div id="box" data-a="aa" data-a-b="bb"></div>
+    <script>
+        //查
+        console.log(box.dataset['a'])
+        console.log(box.dataset['aB'])
+        //修改
+        console.log(box.dataset['a'] = 'love' )
+        //删
+        console.log(box.dataset['a'] = '' )
+        // box.removeAttribute('data-a');
+        delete box.dataset['a'];
+
+        //H5注重实现实现功能
+        //JS注重数据
+    </script>
+</body>
+</html>
